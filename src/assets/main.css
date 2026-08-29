@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; }
+  body { @apply bg-slate-100 text-slate-800 font-sans antialiased; }
+}
+
+@layer components {
+  /* ---- surfaces ---- */
+  .card        { @apply bg-white rounded-xl border border-slate-200 shadow-sm; }
+  .card-header { @apply px-5 py-4 border-b border-slate-200 flex items-center justify-between gap-3; }
+  .card-title  { @apply text-sm font-semibold text-slate-800; }
+  .card-body   { @apply p-5; }
+
+  /* ---- buttons ---- */
+  .btn         { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium
+                        transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1
+                        disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap; }
+  .btn-primary { @apply btn bg-navy-800 text-white hover:bg-navy-900 focus:ring-navy-500; }
+  .btn-ghost   { @apply btn bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 focus:ring-slate-300; }
+  .btn-danger  { @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-400; }
+  .btn-sm      { @apply px-3 py-1.5 text-xs; }
+
+  /* ---- forms ---- */
+  .label { @apply block text-xs font-medium text-slate-600 mb-1.5; }
+  .input { @apply w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-800
+                  placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-navy-400
+                  focus:border-navy-400 disabled:bg-slate-100; }
+  .select { @apply input pr-8 bg-white; }
+
+  /* ---- tables ---- */
+  .table       { @apply w-full text-sm text-left; }
+  .table thead { @apply bg-slate-50 text-xs uppercase tracking-wide text-slate-500; }
+  .table th    { @apply px-4 py-3 font-semibold whitespace-nowrap; }
+  .table td    { @apply px-4 py-3 border-t border-slate-100 text-slate-700; }
+  .table tbody tr:hover { @apply bg-slate-50/70; }
+
+  /* ---- badges ---- */
+  .badge          { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium; }
+  .badge-gray     { @apply badge bg-slate-100 text-slate-700; }
+  .badge-green    { @apply badge bg-emerald-100 text-emerald-800; }
+  .badge-amber    { @apply badge bg-amber-100 text-amber-800; }
+  .badge-red      { @apply badge bg-red-100 text-red-800; }
+  .badge-blue     { @apply badge bg-blue-100 text-blue-800; }
+  .badge-purple   { @apply badge bg-violet-100 text-violet-800; }
+
+  /* ---- navigation ---- */
+  .nav-link        { @apply flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium
+                            text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors; }
+  .nav-link-active { @apply bg-navy-800 text-white hover:bg-navy-800 hover:text-white; }
+}
