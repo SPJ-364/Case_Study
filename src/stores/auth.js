@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import { authApi } from '@/api';
-import { setUnauthorizedHandler } from '@/api/client';
 
 const TOKEN_KEY = 'ims_access_token';
 const USER_KEY  = 'ims_user';
@@ -64,12 +63,12 @@ export const useAuthStore = defineStore('auth', () => {
     }
   };
 
-  // A 401 from any request clears the session.
-  setUnauthorizedHandler(() => persist(null, null));
+  /** Drops the session locally. Called on sign-out and on any 401. */
+  const clearSession = () => persist(null, null);
 
   return {
     user, token, loading, error,
     isAuthenticated, roleCode, roleName, permissions,
-    can, canAny, login, logout, refreshProfile,
+    can, canAny, login, logout, refreshProfile, clearSession,
   };
 });
